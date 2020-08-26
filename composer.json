@@ -1,0 +1,81 @@
+{
+    "name": "phpbench/phpbench",
+    "description": "PHP Benchmarking Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Leech",
+            "email": "daniel@dantleech.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-dom": "*",
+        "ext-json": "*",
+        "ext-pcre": "*",
+        "ext-reflection": "*",
+        "ext-spl": "*",
+        "beberlei/assert": "^2.4 || ^3.0",
+        "doctrine/annotations": "^1.2.7",
+        "doctrine/dbal": "~2.5",
+        "lstrojny/functional-php": "1.0 || ^1.2.3",
+        "padraic/phar-updater": "^1.0",
+        "phpbench/container": "^1.2.1",
+        "phpbench/dom": "~0.2.0",
+        "seld/jsonlint": "^1.1",
+        "symfony/console": "^4.2 || ^5.0",
+        "symfony/debug": "^4.2 || ^5.0",
+        "symfony/filesystem": "^4.2 || ^5.0",
+        "symfony/finder": "^4.2 || ^5.0",
+        "symfony/options-resolver": "^4.2 || ^5.0",
+        "symfony/process": "^4.2 || ^5.0",
+        "webmozart/path-util": "^2.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.13.1",
+        "jangregor/phpstan-prophecy": "^0.8.0",
+        "phpspec/prophecy": "^1.8",
+        "phpstan/phpstan": "^0.12.7",
+        "phpunit/phpunit": "^8.5"
+    },
+    "scripts": {
+        "integrate": [
+            "vendor/bin/php-cs-fixer fix",
+            "vendor/bin/phpstan analyse -c phpstan.neon",
+            "vendor/bin/phpunit"
+        ]
+    },
+    "suggest": {
+        "ext-curl": "For (web) reports extension",
+        "ext-xdebug": "For Xdebug profiling extension."
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpBench\\": "lib/",
+            "PhpBench\\Extensions\\Dbal\\": "extensions/dbal/lib/",
+            "PhpBench\\Extensions\\XDebug\\": "extensions/xdebug/lib/",
+            "PhpBench\\Extensions\\Reports\\": "extensions/reports/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpBench\\Tests\\": "tests/",
+            "PhpBench\\Benchmarks\\": "benchmarks/",
+            "PhpBench\\Extensions\\XDebug\\Tests\\": "extensions/xdebug/tests/",
+            "PhpBench\\Extensions\\Dbal\\Tests\\": "extensions/dbal/tests/",
+            "PhpBench\\Extensions\\Dbal\\Benchmarks\\": "extensions/dbal/benchmarks/",
+            "PhpBench\\Extensions\\Reports\\Tests\\": "extensions/reports/tests/"
+        }
+    },
+    "bin": [
+        "bin/phpbench"
+    ]
+}

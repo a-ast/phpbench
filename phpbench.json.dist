@@ -1,0 +1,16 @@
+{
+    "bootstrap": "vendor/autoload.php",
+    "path": "benchmarks",
+    "php_config": {
+        "memory_limit": "1G"
+    },
+    "extensions": [
+        "PhpBench\\Extensions\\XDebug\\XDebugExtension"
+    ],
+    "reports": {
+        "all": {
+            "generator": "composite",
+            "reports": ["env", "default", "aggregate" ]
+        }
+    }
+}
